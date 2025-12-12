@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://127.0.0.1:8000";  // adjust when deploying
+const API_URL = import.meta.env.VITE_API_BASE_URL;  // adjust when deploying
 
 // Load refresh token from localStorage
 export function getStoredRefreshToken() {
@@ -47,6 +47,7 @@ export async function refreshToken() {
 
   const res = await axios.post(`${API_URL}/auth/refresh`, {
     token,
+    headers: { "Content-Type": "application/json" },
   });
 
   // update refresh token

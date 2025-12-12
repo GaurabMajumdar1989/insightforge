@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import "./SignupPage.css";
 
 const SignupPage = () => {
   const { signup } = useAuth();
@@ -25,8 +26,7 @@ const SignupPage = () => {
         full_name: fullName
       });
 
-      navigate("/login");  // redirect after successful signup
-
+      navigate("/login");
     } catch (err) {
       setError("Signup failed. Email may already be registered.");
     } finally {
@@ -35,14 +35,14 @@ const SignupPage = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <form onSubmit={handleSignup} style={styles.form}>
-        <h2 style={styles.title}>Sign Up</h2>
+    <div className="signup-container">
+      <form onSubmit={handleSignup} className="signup-form">
+        <h2 className="signup-title">Sign Up</h2>
 
-        {error && <p style={styles.error}>{error}</p>}
+        {error && <p className="signup-error">{error}</p>}
 
         <input
-          style={styles.input}
+          className="signup-input"
           type="text"
           placeholder="Full Name (optional)"
           value={fullName}
@@ -50,7 +50,7 @@ const SignupPage = () => {
         />
 
         <input
-          style={styles.input}
+          className="signup-input"
           type="email"
           placeholder="Email (required)"
           value={email}
@@ -59,7 +59,7 @@ const SignupPage = () => {
         />
 
         <input
-          style={styles.input}
+          className="signup-input"
           type="password"
           placeholder="Password (required)"
           value={password}
@@ -67,14 +67,14 @@ const SignupPage = () => {
           required
         />
 
-        <button style={styles.button} type="submit" disabled={loading}>
+        <button className="signup-btn" type="submit" disabled={loading}>
           {loading ? "Signing up..." : "Create Account"}
         </button>
 
-        <p style={styles.switchText}>
+        <p className="signup-switch-text">
           Already have an account?{" "}
           <span
-            style={styles.link}
+            className="signup-link"
             onClick={() => navigate("/login")}
           >
             Log In
@@ -83,59 +83,6 @@ const SignupPage = () => {
       </form>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    background: "#f3f3f3",
-  },
-  form: {
-    background: "white",
-    padding: "32px",
-    borderRadius: "8px",
-    width: "350px",
-    boxShadow: "0 4px 14px rgba(0,0,0,0.1)",
-  },
-  title: {
-    textAlign: "center",
-    marginBottom: "20px",
-  },
-  input: {
-    width: "100%",
-    padding: "12px",
-    marginBottom: "16px",
-    borderRadius: "6px",
-    border: "1px solid #ccc",
-  },
-  button: {
-    width: "100%",
-    padding: "12px",
-    borderRadius: "6px",
-    border: "none",
-    background: "#0ea5e9",
-    color: "white",
-    cursor: "pointer",
-    fontSize: "16px",
-  },
-  switchText: {
-    marginTop: "14px",
-    textAlign: "center",
-    fontSize: "14px",
-  },
-  link: {
-    color: "#0ea5e9",
-    cursor: "pointer",
-    fontWeight: "bold",
-  },
-  error: {
-    color: "red",
-    marginBottom: "10px",
-    textAlign: "center",
-  },
 };
 
 export default SignupPage;

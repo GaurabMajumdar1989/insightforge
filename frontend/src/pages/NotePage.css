@@ -1,0 +1,90 @@
+/* ---- Header ---- */
+.np-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.np-welcome {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.np-logout-btn {
+  padding: 8px 16px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.np-logout-btn:hover {
+  opacity: 0.9;
+}
+
+/* ---- Page Wrapper ---- */
+.np-wrapper {
+  padding: 40px;
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+/* ---- Title ---- */
+.np-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ---- Input Row ---- */
+.np-input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* ---- Section Title ---- */
+.np-section-title {
+  margin-top: 20px;
+  margin-bottom: 12px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.overlay-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55); /* dim screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* stay above everything */
+  backdrop-filter: blur(2px);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 6px solid #999;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+

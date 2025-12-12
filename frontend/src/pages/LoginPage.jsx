@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import "./LoginPage.css";
 
 const LoginPage = () => {
   const { login } = useAuth();
@@ -18,7 +19,7 @@ const LoginPage = () => {
 
     try {
       await login(email, password);
-      navigate("/");  // redirect after login (change if needed)
+      navigate("/");
     } catch (err) {
       setError("Invalid email or password.");
     } finally {
@@ -27,14 +28,14 @@ const LoginPage = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <form onSubmit={handleLogin} style={styles.form}>
-        <h2 style={styles.title}>Log In</h2>
+    <div className="login-container">
+      <form onSubmit={handleLogin} className="login-form">
+        <h2 className="login-title">Log In</h2>
 
-        {error && <p style={styles.error}>{error}</p>}
+        {error && <p className="login-error">{error}</p>}
 
         <input
-          style={styles.input}
+          className="login-input"
           type="email"
           placeholder="Email"
           value={email}
@@ -43,7 +44,7 @@ const LoginPage = () => {
         />
 
         <input
-          style={styles.input}
+          className="login-input"
           type="password"
           placeholder="Password"
           value={password}
@@ -51,14 +52,14 @@ const LoginPage = () => {
           required
         />
 
-        <button style={styles.button} type="submit" disabled={loading}>
+        <button className="login-btn" type="submit" disabled={loading}>
           {loading ? "Logging in..." : "Login"}
         </button>
 
-        <p style={styles.switchText}>
+        <p className="login-switch-text">
           Don't have an account?{" "}
           <span
-            style={styles.link}
+            className="login-link"
             onClick={() => navigate("/signup")}
           >
             Sign Up
@@ -67,59 +68,6 @@ const LoginPage = () => {
       </form>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    background: "#f3f3f3",
-  },
-  form: {
-    background: "white",
-    padding: "32px",
-    borderRadius: "8px",
-    width: "350px",
-    boxShadow: "0 4px 14px rgba(0,0,0,0.1)",
-  },
-  title: {
-    textAlign: "center",
-    marginBottom: "20px",
-  },
-  input: {
-    width: "100%",
-    padding: "12px",
-    marginBottom: "16px",
-    borderRadius: "6px",
-    border: "1px solid #ccc",
-  },
-  button: {
-    width: "100%",
-    padding: "12px",
-    borderRadius: "6px",
-    border: "none",
-    background: "#4f46e5",
-    color: "white",
-    cursor: "pointer",
-    fontSize: "16px",
-  },
-  switchText: {
-    marginTop: "14px",
-    textAlign: "center",
-    fontSize: "14px",
-  },
-  link: {
-    color: "#4f46e5",
-    cursor: "pointer",
-    fontWeight: "bold",
-  },
-  error: {
-    color: "red",
-    marginBottom: "10px",
-    textAlign: "center",
-  },
 };
 
 export default LoginPage;

@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from app.deps import get_db
-from app.schemas.user_schemas import UserCreate, LoginRequest, UserRead, TokenResponse
+from app.schemas.user_schemas import UserCreate, LoginRequest, UserRead, TokenResponse, RefreshRequest
 from app.services.auth_service import AuthService
 from app.models.user import User
 from app.auth_deps import get_current_user
@@ -56,8 +56,9 @@ def login(credentials: LoginRequest, db: Session = Depends(get_db)):
 
 # ---------- REFRESH TOKEN ----------
 @router.post("/refresh", response_model=TokenResponse)
-def refresh(token: str):
-    payload = AuthService.verify_refresh_token(token)
+#def refresh(token: str):
+def refresh(body: RefreshRequest):
+    payload = AuthService.verify_refresh_token(body.token)
     user_id = payload.get("sub")
 
     new_access = AuthService.create_access_token({"sub": user_id})

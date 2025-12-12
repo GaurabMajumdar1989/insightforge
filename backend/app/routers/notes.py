@@ -11,14 +11,14 @@ from app.services.ai_service import gemini_call
 router = APIRouter(prefix="/notes", tags=["Notes"])
 
 
-@router.get("/")
+@router.get("")
 async def get_notes(db: Session = Depends(get_db)):
     result = db.execute(select(Note))
     notes = result.scalars().all()
     return notes
 
 
-@router.post("/")
+@router.post("")
 async def create_note(note: NoteCreate, db: Session = Depends(get_db)):
     new_note = Note(text=note.text)
 

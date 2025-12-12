@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import "./NoteForm.css";
 
 export default function NoteForm({ onCreate }) {
   const [text, setText] = useState("");
@@ -14,38 +15,17 @@ export default function NoteForm({ onCreate }) {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{ display: "flex", gap: "10px", marginBottom: "20px" }}
-    >
+    <form className="nf-form" onSubmit={handleSubmit}>
       <input
         ref={inputRef}
         type="text"
+        className="nf-input"
         value={text}
         placeholder="Write a note..."
         onChange={(e) => setText(e.target.value)}
-        style={{
-          flex: 1,
-          padding: "12px",
-          borderRadius: "8px",
-          border: "1px solid #ccc",
-          fontSize: "16px",
-          outline: "none",
-        }}
       />
 
-      <button
-        type="submit"
-        style={{
-          padding: "12px 20px",
-          background: "#4a90e2",
-          color: "white",
-          border: "none",
-          borderRadius: "8px",
-          cursor: "pointer",
-          fontSize: "16px",
-        }}
-      >
+      <button type="submit" className="nf-btn">
         Add a Note
       </button>
     </form>

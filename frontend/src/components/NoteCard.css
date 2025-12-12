@@ -1,0 +1,62 @@
+.note-card {
+  background-color: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 20px;
+  list-style: none;
+  position: relative;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06); /* softer */
+}
+
+.note-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+}
+
+.note-content {
+  padding-right: 60px;
+}
+
+.note-text {
+  color: #111827;
+  font-size: 1rem;
+  margin: 0 0 8px 0;
+}
+
+.note-ai-btn {
+  background-color: #E0E7FF;
+  color: #3730A3;
+  border: 1px solid #C7D2FE;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.note-ai-btn:hover {
+  background-color: #C7D2FE;
+}
+
+.note-time {
+  color: #6B7280;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.note-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.note-icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}

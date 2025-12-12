@@ -1,4 +1,4 @@
-const BASE = "http://127.0.0.1:8000";
+const BASE = import.meta.env.VITE_API_BASE_URL;
 
 export async function fetchNotesApi() {
   const res = await fetch(`${BASE}/notes`);
@@ -14,7 +14,7 @@ export async function createNoteApi(text) {
 }
 
 export async function deleteNoteApi(id) {
-  return fetch(`${BASE}/notes/${id}`, {
+  return await fetch(`${BASE}/notes/${id}`, {
     method: "DELETE",
   });
 }
@@ -26,4 +26,15 @@ export async function updateNoteApi(id, text) {
     body: JSON.stringify({ text }),
   });
   return res.json();
+}
+
+export async function fetchAiResponse(userPrompt){
+  const res = await fetch(`${BASE}/ai/ask`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        prompt: userPrompt,
+      }),
+    });
+    return res.json();
 }

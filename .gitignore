@@ -28,6 +28,7 @@ Thumbs.db
 *.env
 .env
 **/.env
+*.env*
 
 # Alembic artifacts
 alembic/versions/*.pyc

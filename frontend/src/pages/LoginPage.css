@@ -1,0 +1,86 @@
+/* Page background + centering */
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7f8fa;
+  padding: 20px;
+}
+
+/* Form styling */
+.login-form {
+  background: white;
+  padding: 32px;
+  border-radius: 12px;
+  width: 350px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+/* Title */
+.login-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Input fields */
+.login-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+}
+
+.login-input:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+/* Submit button */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.login-btn:hover {
+  opacity: 0.95;
+}
+
+/* Error message */
+.login-error {
+  color: #ef4444;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Sign-up text */
+.login-switch-text {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 14px;
+  color: #374151;
+}
+
+.login-link {
+  color: #3b82f6;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
