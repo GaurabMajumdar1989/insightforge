@@ -1,4 +1,5 @@
 const BASE = import.meta.env.VITE_API_BASE_URL;
+console.log("PROD BASE URL:", import.meta.env.VITE_API_BASE_URL);
 
 export async function fetchNotesApi() {
   const res = await fetch(`${BASE}/notes`);
